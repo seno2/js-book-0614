@@ -143,7 +143,219 @@ VM1074:1 Uncaught TypeError: a.lastIndex0f is not a function
 ### Consoleの実行ログ
 
 ```
+var sampleHashMap = {};
+undefined
+sampleHashMap['test']
+undefined
+sampleHashMap['test'] = 5;
+5
+sampleHashMap['test'];
+5
+sampleHashMap.test;
+5
+sampleHashMap.test; = 7;
+VM1190:1 Uncaught SyntaxError: Unexpected token =
+sampleHashMap.test = 7;
+7
+sampleHashMap.test;
+7
+var sampleHashMap ={ test : 11};
+undefined
+sampleHashMap.test;
+11
+function sumInformationScore(scores) {
+var toatal =0;
+for (var index = 0; index < scores.length; index++) {
+  total += scores[index].information;
+}
+  return total;
+}
 
+function sumEnglishScore(scores) {
+  var total = 0;
+  for (var index = 0; index < scores.length; index++) {
+    total += scores[index].english;
+  }
+  return total;
+}
+undefined
+function sampleFunction(message = 'test') {return message };
+undefined
+var functionVar = sampleFunction;
+undefined
+functionVar();
+"test"
+functionVar('hoge');
+"hoge"
+functionVar;
+function sampleFunction(message = 'test') {return message }
+function callTarget(target) {return target(); };
+undefined
+function returnSomeString() { return 'Sample'; };
+undefined
+function returnSomeFunction() {return returnSomeString; };
+undefined
+callTarget(returnSomeString);
+"Sample"
+returnSomeFunction();
+function returnSomeString() { return 'Sample'; }
+returnSomeFunction()();
+"Sample"
+function getInformationScore(score) {
+  return score.information;
+}
+
+function getEnglishScore(score) {
+   return score.english;
+}
+
+function calculateTotal(scores, getTarget) {
+  var total =0;
+  for (var index = 0; index < scores.length; index++) {
+total += getTarget(scores[index]);
+  }
+
+return total;
+}
+undefined
+calculateTotal(examinationScores, getInfomationScore;
+VM2796:1 Uncaught SyntaxError: missing ) after argument list
+calculateTotal(examinationScores, getInfomationScore);
+VM2800:1 Uncaught ReferenceError: examinationScores is not defined
+    at <anonymous>:1:16
+(anonymous) @ VM2800:1
+calculateTotal(examinationScores, getInformationScore;
+VM3099:1 Uncaught SyntaxError: missing ) after argument list
+calculateTotal(examinationScores, getInformationScore);
+VM3102:1 Uncaught ReferenceError: examinationScores is not defined
+    at <anonymous>:1:16
+(anonymous) @ VM3102:1
+function getInformationScore(score) {
+  return score.information;
+}
+
+function getEnglishScore(score) {
+   return score.english;
+}
+
+function calculateTotal(scores, getTarget) {
+  var total =0;
+  for (var index = 0; index < scores.length; index++) {
+total += getTarget(scores[index]);
+  }
+
+return total;
+}
+undefined
+calculateTotal(examinationScores, getInformationScore);
+VM3105:1 Uncaught ReferenceError: examinationScores is not defined
+    at <anonymous>:1:16
+(anonymous) @ VM3105:1
+sumInformationScore(examinationScores);
+VM3183:1 Uncaught ReferenceError: examinationScores is not defined
+    at <anonymous>:1:21
+(anonymous) @ VM3183:1
+var functionExpression =
+  functin getInformationScore(score) {
+    return score.information;
+  };
+VM3293:2 Uncaught SyntaxError: Unexpected identifier
+var functionExpression =
+  function getInformationScore(score) {
+    return score.information;
+  };
+undefined
+functionExpression;
+function getInformationScore(score) {
+    return score.information;
+  }
+getInformationScore(score)
+VM3387:1 Uncaught ReferenceError: score is not defined
+    at <anonymous>:1:21
+(anonymous) @ VM3387:1
+getInformationScore;
+function getInformationScore(score) {
+  return score.information;
+}
+calculateTotal(examinationScores, functionExpression);
+VM3539:1 Uncaught ReferenceError: examinationScores is not defined
+    at <anonymous>:1:16
+(anonymous) @ VM3539:1
+calculateTotal(examinationScores,
+  function getInformationScore(score) {
+     return score.information;
+}};
+VM3631:4 Uncaught SyntaxError: missing ) after argument list
+calculateTotal(examinationScores,
+  function(score) {
+    return score.information;
+}};
+VM3753:4 Uncaught SyntaxError: missing ) after argument list
+calculateTotal(examinationScores,
+  function(score) {
+    return score.information;
+});
+VM3758:1 Uncaught ReferenceError: examinationScores is not defined
+    at <anonymous>:1:16
+(anonymous) @ VM3758:1
+calculateTotal(examinationScores,
+   (score) => {
+     return score. information;
+});
+VM3879:1 Uncaught ReferenceError: examinationScores is not defined
+    at <anonymous>:1:16
+(anonymous) @ VM3879:1
+calculateTotal(examinationScores,
+   score => {
+     return score. information;
+});
+VM3935:1 Uncaught ReferenceError: examinationScores is not defined
+    at <anonymous>:1:16
+(anonymous) @ VM3935:1
+calculateTotal(examinationScores, score => score.information);
+VM4037:1 Uncaught ReferenceError: examinationScores is not defined
+    at <anonymous>:1:16
+(anonymous) @ VM4037:1
+var functionVar1 = () => '1st';
+undefined
+functionVar1();
+"1st"
+functionVar1 = () => '2nd';
+() => '2nd'
+functionVar1();
+"2nd"
+var functionVar1 = function function1() { console.log(function1); };
+undefined
+functionVar1();
+VM4205:1 function function1() { console.log(function1); }
+undefined
+console.log(function1);
+VM4277:1 Uncaught ReferenceError: function1 is not defined
+    at <anonymous>:1:13
+(anonymous) @ VM4277:1
+function function1() { return '1st'; };
+undefined
+var function2= function1;
+undefined
+function1 = function function2() { return '2nd'; };
+function function2() { return '2nd'; }
+function1();
+"2nd"
+function2();
+"1st"
+function3();
+VM4471:1 Uncaught ReferenceError: function3 is not defined
+    at <anonymous>:1:1
+(anonymous) @ VM4471:1
+function3();
+function function3() {return '3rd'; };
+"3rd"
+var functionVar4;
+functionVar4();
+functionvar4 = () => console.log('3rd');
+VM4597:2 Uncaught TypeError: functionVar4 is not a function
+    at <anonymous>:2:1
+(anonymous) @ VM4597:2
 ```
 
 ### Console以外の動き（もしあれば）
@@ -152,8 +364,8 @@ VM1074:1 Uncaught TypeError: a.lastIndex0f is not a function
 
 ### 分かったこと
 
-【ここに書く】
+配列と関数について
 
 ### 疑問・分からないこと（もしあれば）
 
-【ここに書く（なければ省略可）】
+calculateがうまくできなかった
